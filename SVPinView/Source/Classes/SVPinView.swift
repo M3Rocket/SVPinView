@@ -115,9 +115,9 @@ public class SVPinView: UIView {
         placeholderLabel.isHidden = !textField.text!.isEmpty
         
         // secure text after a bit
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(2000), execute: {
             if textField.text == "" {
-                textField.text = " "
+                textField.text = ""
                 placeholderLabel.isHidden = false
             } else {
                 placeholderLabel.isHidden = true
