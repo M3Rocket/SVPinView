@@ -96,6 +96,7 @@ public class SVPinView: UIView {
         // check if entered text is backspace
         if isBackSpace() {
             nextTag = textField.tag - 1
+			placeholderLabel.isHidden = true
         } else {
             nextTag = textField.tag + 1
         }
@@ -197,10 +198,10 @@ public class SVPinView: UIView {
             placeholderLabel.isHidden = true
             
             //secure text after a bit
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(400), execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: {
                 if textField.text == "" {
-                    textField.text = ""
-                    placeholderLabel.isHidden = true
+                    textField.text = "@"
+                    placeholderLabel.isHidden = false
                 } else {
                     if self.shouldSecureText {textField.text = self.secureCharacter} else {}
                 }
